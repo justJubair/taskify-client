@@ -7,10 +7,12 @@ import { AiOutlineLink } from "react-icons/ai";
 import { FaCalendar } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Card = ({ task }) => {
   // State to keep track of selected files
   const [selectedFiles, setSelectedFiles] = useState([]);
+
 
   // Event handler for file selection
   const handleFileChange = (e) => {
@@ -25,7 +27,16 @@ const Card = ({ task }) => {
     e.preventDefault()
     try{
         const res = await axios.patch(`http://localhost:5000/task/${task?._id}`, {count: selectedFiles.length})
-        console.log(res.data)
+        if(res?.data?.result?.modifiedCount>0){
+          toast.success("Attachments uploaded")
+          e.target.reset()
+          setSelectedFiles([])
+          setTimeout(function(){
+            window.location.reload();
+         }, 1500); //Time before execution
+         
+        }
+        
     }
     catch(err){
       console.log(err)
