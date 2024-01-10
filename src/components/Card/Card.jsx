@@ -6,20 +6,32 @@ import { FaComments } from "react-icons/fa";
 import { AiOutlineLink } from "react-icons/ai";
 import { FaCalendar } from "react-icons/fa";
 import { useState } from "react";
+import axios from "axios";
 
 const Card = ({ task }) => {
   // State to keep track of selected files
   const [selectedFiles, setSelectedFiles] = useState([]);
 
   // Event handler for file selection
-  const handleFileChange = (e)=>{
+  const handleFileChange = (e) => {
     // Extract selected files from the event
     const files = e.target.files;
 
     // Update state by combining existing files with newly selected files
-    setSelectedFiles([...selectedFiles, ...files])
+    setSelectedFiles([...selectedFiles, ...files]);
+  };
+
+  const handleAttachments = async(e)=>{
+    e.preventDefault()
+    try{
+        const res = await axios.patch(`http://localhost:5000/task/${task?._id}`, {count: selectedFiles.length})
+        console.log(res.data)
+    }
+    catch(err){
+      console.log(err)
+    }
+
   }
-  console.log(selectedFiles)
 
   return (
     <div className="rounded-xl w-[500px] bg-base-100 shadow-xl text-gray-500">
@@ -76,26 +88,31 @@ const Card = ({ task }) => {
                     ✕
                   </button>
                 </form>
-                <h3 className="font-bold text-lg">Hello!</h3>
-                <p className="py-4">
-                  Press ESC key or click on ✕ button to close
-                </p>
+                <h3 className="font-bold text-lg">Attach files!</h3>
+                <p className="py-4">Add relevant attachments to this task</p>
 
-                {/* Input element for file selection with multiple attributes */}
-                <input type="file" multiple onChange={handleFileChange} className="file-input file-input-bordered w-full max-w-xs" />
+                <form onSubmit={handleAttachments}>
+                  {/* Input element for file selection with multiple attributes */}
+                  <input
+                    type="file"
+                    multiple
+                    onChange={handleFileChange}
+                    className="file-input file-input-bordered w-full max-w-xs"
+                  />
 
-                {/* Display selected files */}
-                {
-                  selectedFiles.length>0 &&  <div className="mt-4">
-                  <h3 className="text-blue-600">*Selected Attachments</h3>
-                    <ul>
-                      {
-                        selectedFiles?.map((file, index)=> <li key={index}>{file?.name}</li>)
-                      }
-                    </ul>
-                </div>
-                }
-               
+                  {/* Display selected files */}
+                  {selectedFiles.length > 0 && (
+                    <div className="mt-4">
+                      <h3 className="text-blue-600">*Selected Attachments</h3>
+                      <ul>
+                        {selectedFiles?.map((file, index) => (
+                          <li key={index}>{file?.name}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  <button type="submit" className="btn btn-block mt-6 uppercase">Upload Attachments</button>
+                </form>
               </div>
             </dialog>
             <p>{task?.attachment_counts}</p>

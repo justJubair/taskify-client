@@ -20,19 +20,19 @@ function App() {
         <TaskColumn title="Incomplete" tasks={tasks} from={0} to={10} color="red"/>
 
         {/* to do column */}
-        <TaskColumn title="To Do" tasks={tasks} from={5} to={10} color="blue"/>
+        <TaskColumn title="To Do" tasks={tasks} from={25} to={35} color="blue"/>
 
         {/* doing column */}
-        <TaskColumn title="Doing" tasks={tasks} from={8} to={10} color="yellow"/>
+        <TaskColumn title="Doing" tasks={tasks} from={11} to={18} color="yellow"/>
 
         {/* under review column */}
-        <TaskColumn title="Under Review" tasks={tasks} from={0} to={3} color="violet"/>
+        <TaskColumn title="Under Review" tasks={tasks} from={36} to={42} color="violet"/>
 
         {/* completed column */}
-        <TaskColumn title="Completed" tasks={tasks} from={4} to={9} color="green"/>
+        <TaskColumn title="Completed" tasks={tasks} from={45} to={55} color="green"/>
 
         {/* overview */}
-        <TaskColumn title="Overview" tasks={tasks} from={0} to={2} color="orange"/>
+        <TaskColumn title="Overview" tasks={tasks} from={56} to={60} color="orange"/>
       </div>
     </>
   );
