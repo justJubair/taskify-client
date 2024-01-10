@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import TaskColumn from "./components/TaskColumn/TaskColumn";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -34,6 +35,7 @@ function App() {
         {/* overview */}
         <TaskColumn title="Overview" tasks={tasks} from={56} to={60} color="orange"/>
       </div>
+      <Toaster/>
     </>
   );
 }
