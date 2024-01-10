@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
+import "./TaskColumn.css"
 
 import Card from "../Card/Card";
 
 const TaskColumn = ({title, tasks, from, to, color}) => {
     return(
-        <div className="mt-4">
+        <div className="pt-8 overflow-y-auto overflow-x-hidden task-column">
              <div className="flex items-center gap-2">
               {/* color block */}
               <div style={{backgroundColor: color}} className="w-6 h-6 rounded-l-full"></div>

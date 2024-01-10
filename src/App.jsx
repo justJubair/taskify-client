@@ -15,9 +15,9 @@ function App() {
     <>
       {/* manually create columns */}
 
-      <div className="px-4 h-screen grid grid-cols-6 overflow-x-auto w-[3200px]">
+      <div className="px-10 h-screen grid grid-cols-6 gap-4 overflow-x-scroll w-[3200px]">
         {/* incomplete column */}
-        <TaskColumn title="Incomplete" tasks={tasks} from={0} to={4} color="red"/>
+        <TaskColumn title="Incomplete" tasks={tasks} from={0} to={10} color="red"/>
 
         {/* to do column */}
         <TaskColumn title="To Do" tasks={tasks} from={5} to={6} color="blue"/>
