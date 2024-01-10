@@ -15,7 +15,7 @@ function App() {
     <>
       {/* manually create columns */}
 
-      <div className="max-w-screen-xl mx-auto px-4">
+      <div className="px-4 h-screen grid grid-cols-6 overflow-x-auto w-[3200px]">
         {/* incomplete column */}
         <TaskColumn title="Incomplete" tasks={tasks} from={0} to={4} color="red"/>
 

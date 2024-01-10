@@ -4,7 +4,7 @@ import Card from "../Card/Card";
 
 const TaskColumn = ({title, tasks, from, to, color}) => {
     return(
-        <div>
+        <div className="mt-4">
              <div className="flex items-center gap-2">
               {/* color block */}
               <div style={{backgroundColor: color}} className="w-6 h-6 rounded-l-full"></div>
@@ -12,7 +12,7 @@ const TaskColumn = ({title, tasks, from, to, color}) => {
              </div>
 
              {/* tasks */}
-             <div >
+             <div className="flex flex-col justify-center gap-4">
               {
                 tasks?.slice(from, to)?.map(task=> <Card key={task?.name} task={task}/>)
               }
