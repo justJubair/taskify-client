@@ -26,14 +26,12 @@ const Card = ({ task }) => {
   const handleAttachments = async(e)=>{
     e.preventDefault()
     try{
-        const res = await axios.patch(`http://localhost:5000/task/${task?._id}`, {count: selectedFiles.length})
+        const res = await axios.patch(`https://taskify-server-xi.vercel.app/task/${task?._id}`, {count: selectedFiles.length})
         if(res?.data?.result?.modifiedCount>0){
           toast.success("Attachments uploaded")
           e.target.reset()
           setSelectedFiles([])
-          setTimeout(function(){
-            window.location.reload();
-         }, 1500); //Time before execution
+          
          
         }
         
