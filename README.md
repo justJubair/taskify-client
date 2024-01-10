@@ -1,8 +1,11 @@
-# React + Vite
+# Taskify
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Column structured simple to do app. 
+- [Live site](https://taskify-client.vercel.app)
 
-Currently, two official plugins are available:
+## Major Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Developing (in progress) a dynamic and user-friendly to-do app using React, TailwindCSS, DaisyUI, Axios, and tanstack query.
+
+- Implemented a column structure for organizing tasks efficiently.
+-Integrated a file attachment feature allowing users to attach multiple files to each task.
