@@ -17,22 +17,22 @@ function App() {
 
       <div className="max-w-screen-xl mx-auto px-4">
         {/* incomplete column */}
-        <TaskColumn title="Incomplete" tasks={tasks} from={0} to={4} />
+        <TaskColumn title="Incomplete" tasks={tasks} from={0} to={4} color="red"/>
 
         {/* to do column */}
-        <TaskColumn title="To Do" tasks={tasks} from={5} to={6} />
+        <TaskColumn title="To Do" tasks={tasks} from={5} to={6} color="blue"/>
 
         {/* doing column */}
-        <TaskColumn title="Doing" tasks={tasks} from={8} to={10} />
+        <TaskColumn title="Doing" tasks={tasks} from={8} to={10} color="yellow"/>
 
         {/* under review column */}
-        <TaskColumn title="Under Review" tasks={tasks} from={0} to={3} />
+        <TaskColumn title="Under Review" tasks={tasks} from={0} to={3} color="violet"/>
 
         {/* completed column */}
-        <TaskColumn title="Completed" tasks={tasks} from={4} to={9}/>
+        <TaskColumn title="Completed" tasks={tasks} from={4} to={9} color="green"/>
 
         {/* overview */}
-        <TaskColumn title="Overview" tasks={tasks} from={0} to={2} />
+        <TaskColumn title="Overview" tasks={tasks} from={0} to={2} color="orange"/>
       </div>
     </>
   );

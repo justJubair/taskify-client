@@ -2,10 +2,14 @@
 
 import Card from "../Card/Card";
 
-const TaskColumn = ({title, tasks, from, to}) => {
+const TaskColumn = ({title, tasks, from, to, color}) => {
     return(
         <div>
+             <div className="flex items-center gap-2">
+              {/* color block */}
+              <div style={{backgroundColor: color}} className="w-6 h-6 rounded-l-full"></div>
              <h3 className="text-lg font-bold text-gray-500"> {title} </h3>
+             </div>
 
              {/* tasks */}
              <div >
