@@ -6,7 +6,7 @@ import { FaComments } from "react-icons/fa";
 import { AiOutlineLink } from "react-icons/ai";
 import { FaCalendar } from "react-icons/fa";
 
-const Card = ({task}) => {
+const Card = ({ task }) => {
   return (
     <div className="rounded-xl w-[500px] bg-base-100 shadow-xl text-gray-500">
       <div className="card-body">
@@ -24,7 +24,7 @@ const Card = ({task}) => {
           {/* task details with icon */}
           <div className="flex items-start">
             <LuFileStack size={70} />
-            <p className="text-xs px-4">{task?.task_details.slice(0,200)}</p>
+            <p className="text-xs px-4">{task?.task_details.slice(0, 200)}</p>
           </div>
 
           {/* tasks completed */}
@@ -48,8 +48,26 @@ const Card = ({task}) => {
           </div>
 
           {/* attachments */}
-          <div className="flex items-center gap-1 bg-base-200 p-1">
+          <div
+            className="flex items-center gap-1 bg-base-200 p-1 cursor-pointer"
+            onClick={() => document.getElementById(task?._id).showModal()}
+          >
             <AiOutlineLink size={20} />
+            {/* modal */}
+            <dialog id={task?._id} className="modal">
+              <div className="modal-box">
+                <form method="dialog">
+                  {/* if there is a button in form, it will close the modal */}
+                  <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                    ✕
+                  </button>
+                </form>
+                <h3 className="font-bold text-lg">Hello!</h3>
+                <p className="py-4">
+                  Press ESC key or click on ✕ button to close
+                </p>
+              </div>
+            </dialog>
             <p>{task?.attachment_counts}</p>
           </div>
 
