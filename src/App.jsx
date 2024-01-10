@@ -2,6 +2,8 @@
 import { LuFileStack } from "react-icons/lu";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaComments } from "react-icons/fa";
+import { AiOutlineLink } from "react-icons/ai";
+import { FaCalendar } from "react-icons/fa";
 
 function App() {
   return (
@@ -27,15 +29,17 @@ function App() {
 
             {/* tasks completed */}
             <div className="flex items-center gap-1 bg-base-200 p-1">
-              <FaCalendarAlt size={20} />
+              <FaCalendar size={20} />
               <p className="font-medium ">1/2</p>
             </div>
           </div>
 
           {/* footer icons: attachments, comments and more */}
-          <div className="font-medium">
+          <div className="flex justify-end gap-4 font-medium mt-3">
             {/* total completed tasks */}
-            <p className="bg-base-200 p-1">12+</p>
+          <div>
+          <p className="bg-base-200 p-1">12+</p>
+          </div>
 
             {/* comments */}
             <div className="flex items-center gap-1 bg-base-200 p-1">
@@ -43,7 +47,17 @@ function App() {
               <p>15</p>
             </div>
 
-            {/*  */}
+            {/* attachments */}
+            <div className="flex items-center gap-1 bg-base-200 p-1">
+              <AiOutlineLink size={20} />
+              <p>4</p>
+            </div>
+
+            {/* date */}
+            <div className="flex items-center gap-1 bg-base-200 p-1">
+              <FaCalendarAlt size={20} />
+              <p>30-12-05</p>
+            </div>
           </div>
         </div>
       </div>
