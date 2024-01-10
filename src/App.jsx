@@ -20,7 +20,7 @@ function App() {
         <TaskColumn title="Incomplete" tasks={tasks} from={0} to={10} color="red"/>
 
         {/* to do column */}
-        <TaskColumn title="To Do" tasks={tasks} from={5} to={6} color="blue"/>
+        <TaskColumn title="To Do" tasks={tasks} from={5} to={10} color="blue"/>
 
         {/* doing column */}
         <TaskColumn title="Doing" tasks={tasks} from={8} to={10} color="yellow"/>

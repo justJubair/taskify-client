@@ -5,8 +5,22 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { FaComments } from "react-icons/fa";
 import { AiOutlineLink } from "react-icons/ai";
 import { FaCalendar } from "react-icons/fa";
+import { useState } from "react";
 
 const Card = ({ task }) => {
+  // State to keep track of selected files
+  const [selectedFiles, setSelectedFiles] = useState([]);
+
+  // Event handler for file selection
+  const handleFileChange = (e)=>{
+    // Extract selected files from the event
+    const files = e.target.files;
+
+    // Update state by combining existing files with newly selected files
+    setSelectedFiles([...selectedFiles, ...files])
+  }
+  console.log(selectedFiles)
+
   return (
     <div className="rounded-xl w-[500px] bg-base-100 shadow-xl text-gray-500">
       <div className="card-body">
@@ -66,6 +80,22 @@ const Card = ({ task }) => {
                 <p className="py-4">
                   Press ESC key or click on ✕ button to close
                 </p>
+
+                {/* Input element for file selection with multiple attributes */}
+                <input type="file" multiple onChange={handleFileChange} className="file-input file-input-bordered w-full max-w-xs" />
+
+                {/* Display selected files */}
+                {
+                  selectedFiles.length>0 &&  <div className="mt-4">
+                  <h3 className="text-blue-600">*Selected Attachments</h3>
+                    <ul>
+                      {
+                        selectedFiles?.map((file, index)=> <li key={index}>{file?.name}</li>)
+                      }
+                    </ul>
+                </div>
+                }
+               
               </div>
             </dialog>
             <p>{task?.attachment_counts}</p>
