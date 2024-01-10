@@ -1,13 +1,17 @@
 /* eslint-disable react/prop-types */
 
-const TaskColumn = ({title, tasks}) => {
+import Card from "../Card/Card";
+
+const TaskColumn = ({title, tasks, from, to}) => {
     return(
         <div>
-             <p> {title} </p>
+             <h3 className="text-lg font-bold text-gray-500"> {title} </h3>
 
              {/* tasks */}
-             <div>
-              
+             <div >
+              {
+                tasks?.slice(from, to)?.map(task=> <Card key={task?.name} task={task}/>)
+              }
              </div>
         </div>
     )}
