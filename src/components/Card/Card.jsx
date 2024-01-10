@@ -9,7 +9,7 @@ import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const Card = ({ task }) => {
+const Card = ({ task, refetch }) => {
   // State to keep track of selected files
   const [selectedFiles, setSelectedFiles] = useState([]);
 
@@ -31,7 +31,7 @@ const Card = ({ task }) => {
           toast.success("Attachments uploaded")
           e.target.reset()
           setSelectedFiles([])
-          
+          refetch()
          
         }
         

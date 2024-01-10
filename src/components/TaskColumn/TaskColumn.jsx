@@ -3,7 +3,7 @@ import "./TaskColumn.css"
 
 import Card from "../Card/Card";
 
-const TaskColumn = ({title, tasks, from, to, color}) => {
+const TaskColumn = ({title, tasks, from, to, color, refetch}) => {
     return(
         <div className="pt-8 overflow-y-auto overflow-x-hidden task-column">
              <div className="flex items-center gap-2">
@@ -15,7 +15,7 @@ const TaskColumn = ({title, tasks, from, to, color}) => {
              {/* tasks */}
              <div className="flex flex-col justify-center gap-4">
               {
-                tasks?.slice(from, to)?.map(task=> <Card key={task?.name} task={task}/>)
+                tasks?.slice(from, to)?.map(task=> <Card key={task?.name} task={task} refetch={refetch}/>)
               }
              </div>
         </div>
